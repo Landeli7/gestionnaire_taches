@@ -1,0 +1,38 @@
+<div class="center">
+	<mat-card appearance="outlined">
+		<mat-card-header>
+			<mat-card-title>Liste des tâches</mat-card-title>
+		</mat-card-header>
+		<mat-card-content>
+			<mat-accordion>
+				<mat-expansion-panel *ngFor="let task of tasks" (opened)="setTaskIndex(task.id)"
+					[ngClass]="{'completed-task': task.completed}">
+					<mat-expansion-panel-header>
+						<mat-panel-title>{{task.name}}</mat-panel-title>
+						<mat-panel-description>{{task.dueDate}}</mat-panel-description>
+					</mat-expansion-panel-header>
+					<p>{{task.desc}}</p>
+					<mat-form-field appearance="outline">
+						<mat-label>Priorité</mat-label>
+						<mat-select type="text" ngModel={{task.priority}} (ngModelChange)="changePriority($event)">
+							<mat-option value="4">Urgent</mat-option>
+							<mat-option value="3">Important</mat-option>
+							<mat-option value="2">Normale</mat-option>
+							<mat-option value="1">Pas important</mat-option>
+						</mat-select>
+					</mat-form-field>
+					<mat-action-row>
+						<button mat-button color="warn" (click)="deleteTask()">Supprimer</button>
+						<button mat-raised-button color="primary" (click)="completeTask()">Marquer comme
+							{{task.completed ? "non" : ""}} complétée</button>
+					</mat-action-row>
+				</mat-expansion-panel>
+			</mat-accordion>
+		</mat-card-content>
+
+		<mat-card-actions align="end">
+			<button mat-button (click)="sortTaskList()">Trier par date</button>
+			<button mat-flat-button routerLink="/addtask">Créer une tâche</button>
+		</mat-card-actions>
+	</mat-card>
+</div>

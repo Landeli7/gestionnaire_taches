@@ -1,0 +1,46 @@
+<div class="center">
+    <mat-card appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>Ajout de tâche</mat-card-title>
+            <mat-card-subtitle>Veuillez créer une tâche</mat-card-subtitle>
+        </mat-card-header>
+
+        <form #addTaskForm="ngForm" (ngSubmit)="submitForm()">
+            <mat-card-content>
+                <mat-form-field appearance="outline" class="formFieldFullWidth">
+                    <mat-label>Nom</mat-label>
+                    <input type="text" matInput name="name" ngModel required>
+                    <!-- <mat-icon matSuffix>Email</mat-icon> -->
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="outline" class="formFieldFullWidth">
+                    <mat-label>Description</mat-label>
+                    <textarea type="text" matInput name="desc" ngModel required></textarea>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="outline" class="formFieldFullWidth">
+                    <mat-label>Priorité</mat-label>
+                    <mat-select type="text" matInput name="priority" ngModel required>
+                        <mat-option value="4">Urgent</mat-option>
+                        <mat-option value="3">Important</mat-option>
+                        <mat-option value="2">Normale</mat-option>
+                        <mat-option value="1">Pas important</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="outline" class="formFieldFullWidth">
+                    <mat-label>Date d'échéance</mat-label>
+                    <input type="text" matInput [matDatepicker]="picker" ngModel name="dueDate" required>
+                    <mat-hint>JJ/MM/AAAA</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions align="end">
+                <button mat-button routerLink="/tasklist">Annuler</button>
+                <button mat-flat-button type="submit" [disabled]="!addTaskForm.valid">Ajouter</button>
+            </mat-card-actions>
+
+        </form>
+    </mat-card>
+</div>

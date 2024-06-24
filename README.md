@@ -1,7 +1,7 @@
 # gestionnaire_taches
 Technical test : Task management app
 
-This application was developed with Java / Spring boot, Maven and Angular with a MySQL database.
+This back-end of the application was developed with Java / Spring boot and Maven. The front-end was developed using Angular and material.angular.io. There is also a MySQL database to store the users and the tasks.
 
 The following features are available :
 - Basic log in and sign up.
@@ -71,3 +71,11 @@ To launch the back-end you can install Visual Studio Code with the Java and Mave
 You can run this command to launch the front-end :
 
 >ng serve
+
+## What can be improved
+
+In this project, there are several aspects that can be improved :
+- Editing a task (change the name, the description and the due date).
+- Hashing the passwords in the database with the Bcrypt library for example.
+- Adding a new account management component to allow the user to change his password or delete his account (this would also require to create a new function in the AuthController).
+- Making the front-end more responsive by using the layout package of material.angular.io. 

@@ -127,7 +127,7 @@ public class TaskController {
     }
 
     @PostMapping("/changePriority/{userTaskId}")
-    public ResponseEntity<String> completeUserTask(@PathVariable Long userTaskId, @RequestBody Integer userTaskPriority) {
+    public ResponseEntity<String> changePriorityUserTask(@PathVariable Long userTaskId, @RequestBody Integer userTaskPriority) {
         
         setHeadersContentType(MediaType.APPLICATION_JSON);
 
